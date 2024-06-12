@@ -1,0 +1,59 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "config.schema.json",
+    "title": "Cronos-Service Config",
+    "description": "Cronos service configuration schema",
+    "type": "object",
+    "properties": {
+        "service": {
+            "description": "Configuration related to this service",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the service. This name will be registered on Cronos application"
+                },
+                "auth": {
+                    "type": "object",
+                    "description": "Configuration related to the authentication when requesting from Cronos.",
+                    "properties": {
+                        "user": {
+                            "type": "string"
+                        },
+                        "password": {
+                            "type": "string"
+                        },
+                        "jwt_verification_key": {
+                            "type": "string"
+                        },
+                        "jwt_signing_key": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["user", "password", "jwt_verification_key", "jwt_signing_key"]
+                },
+                "namespaces": {
+                    "type": "array",
+                    "description": "Namespaces allowed to execute this service",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string",
+                                "description": "Id of the namespace as it is"
+                            },
+                            "key": {
+                                "type": "string",
+                                "description": "Key generated on the Cronos console once the service has been registered on the system"
+                            }
+                        },
+                        "required": ["id", "key"]
+                    },
+                    "minItems": 1,
+                    "uniqueItems": true
+                }
+            },
+            "required": ["name", "auth"]
+        }
+    }
+}
