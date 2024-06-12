@@ -62,7 +62,7 @@
         "buff_size": {
             "description": "Maximum buff (in bytes) to send to Cronos when executions generate logs",
             "type": "integer",
-            "maximum": 10000
+            "maximum": 100000
         },
         "log": {
             "type": "object",
@@ -112,14 +112,17 @@
                 },
                 "crt": {
                     "type": "string",
-                    "description": "Path to a valid certificate for the server"
+                    "description": "Path to a valid certificate for the server",
+                    "default": ""
                 },
                 "key": {
                     "type": "string",
+                    "default": "",
                     "description": "Path to a valid key for the server. Should be unencrypted"
                 },
                 "root_ca": {
                     "type": "string",
+                    "default": "",
                     "description": "This variable defines the path to a set of root certificate authorities that server use if required to verify a client certificate by the policy in ClientAuth."
                 }
             },
@@ -143,10 +146,12 @@
                 },
                 "crt": {
                     "type": "string",
+                    "default": "",
                     "description": "Path to a valid certificate for the client"
                 },
                 "key": {
                     "type": "string",
+                    "default": "",
                     "description": "Path to a valid key for the client. Should be unencrypted"
                 }
             },
@@ -156,6 +161,7 @@
         },
         "external": {
             "type": "string",
+            "default": "",
             "description": "External URL in case Cronos needs to resolve it outside its own context"
         },
         "cronos_host": {
