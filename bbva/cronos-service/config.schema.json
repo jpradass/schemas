@@ -192,6 +192,137 @@
                     "type": "boolean",
                     "default": false,
                     "description": "Boolean to determine if scripts are loaded from some S3 instance instead of locally"
+                },
+                "path": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Path where scripts live in if S3 hasn't been selected"
+                }, 
+                "exec": {
+                    "type": "array",
+                    "description": "Scripts that are executable by the Service and that will appear like that in Cronos",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "description": "Name of the script to be referenced on Cronos"
+                            },
+                            "params": {
+                                "type": "array",
+                                "description": "Params that script would need when being executed",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "label": {
+                                            "type": "string",
+                                            "description": "Label for the param to be identified"
+                                        },
+                                        "required": {
+                                            "type": "boolean",
+                                            "description": "Boolean to determine if params is required or not",
+                                            "default": false
+                                        },
+                                        "example": {
+                                            "type": "string",
+                                            "description": "Example to show how to use this param",
+                                            "default": ""
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "description": "Description to help people understand what this params is used for",
+                                            "default": ""
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "required": ["name"]
+                    }
+                },
+                "check": {
+                    "type": "array",
+                    "description": "Scripts that check executions by the Service and that will appear like that in Cronos",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "description": "Name of the script to be referenced on Cronos"
+                            },
+                            "params": {
+                                "type": "array",
+                                "description": "Params that script would need when being executed",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "label": {
+                                            "type": "string",
+                                            "description": "Label for the param to be identified"
+                                        },
+                                        "required": {
+                                            "type": "boolean",
+                                            "description": "Boolean to determine if params is required or not",
+                                            "default": false
+                                        },
+                                        "example": {
+                                            "type": "string",
+                                            "description": "Example to show how to use this param",
+                                            "default": ""
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "description": "Description to help people understand what this params is used for",
+                                            "default": ""
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "required": ["name"]
+                    }
+                },
+                "cancel": {
+                    "type": "array",
+                    "description": "Scripts that cancel executions by the Service and that will appear like that in Cronos",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string",
+                                "description": "Name of the script to be referenced on Cronos"
+                            },
+                            "params": {
+                                "type": "array",
+                                "description": "Params that script would need when being executed",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "label": {
+                                            "type": "string",
+                                            "description": "Label for the param to be identified"
+                                        },
+                                        "required": {
+                                            "type": "boolean",
+                                            "description": "Boolean to determine if params is required or not",
+                                            "default": false
+                                        },
+                                        "example": {
+                                            "type": "string",
+                                            "description": "Example to show how to use this param",
+                                            "default": ""
+                                        },
+                                        "description": {
+                                            "type": "string",
+                                            "description": "Description to help people understand what this params is used for",
+                                            "default": ""
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "required": ["name"]
+                    }
                 }
             },
             "required": ["enabled"]
